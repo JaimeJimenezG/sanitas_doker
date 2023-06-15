@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node
+    volumes:
+    - .:/home/node/sanitas/
+    ports:
+    - '${ANGULAR_DEV_INTERNAL_PORT}:${ANGULAR_DEV_EXTERNAL_PORT}'
+    - '${IONIC_DEV_INTERNAL_PORT}:${IONIC_DEV_EXTERNAL_PORT}'
+    - '${SOCKETS_INTERNAL_PORT}:${SOCKETS_EXTERNAL_PORT}'
+    restart: unless-stopped
+    env_file: .env
+    command: sh ./run_dev.sh
+    working_dir: /home/node/sanitas/
