@@ -15,4 +15,4 @@ services:
     restart: unless-stopped
     env_file: .env
     command: sh ./run_dev.sh
-    working_dir: /home/node/sanitas/
+    working_dir: /home/node/sanitas/sanitas_test
